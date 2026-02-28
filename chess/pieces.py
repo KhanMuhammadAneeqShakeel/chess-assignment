@@ -12,8 +12,9 @@ class BaseChessPiece(ABC):
         self.is_alive = True
 
     @abstractmethod
-    def move(self):
-        pass
+    def move(self, movement: str):
+       
+        print(movement)
 
     def die(self):
         self.is_alive = False
@@ -23,24 +24,32 @@ class BaseChessPiece(ABC):
 
     def __repr__(self):
         return f"{self.color} {self.name} {self.identifier}"
+
 class Pawn(BaseChessPiece):
 
     def __init__(self, color: str, identifier: int):
         super().__init__(color, "Pawn", "-", identifier)
 
     def move(self):
-        print("Pawn moves forward 1 position")
+        movement = "Pawn moves forward 1 position"
+        super().move(movement)
+
+
 class Rook(BaseChessPiece):
 
     def __init__(self, color: str, identifier: int):
         super().__init__(color, "Rook", "R", identifier)
 
     def move(self):
-        print("Rook moves in a straight line")
+        movement = "Rook moves in a straight line"
+        super().move(movement)
+
+
 class Bishop(BaseChessPiece):
 
     def __init__(self, color: str, identifier: int):
         super().__init__(color, "Bishop", "B", identifier)
 
     def move(self):
-        print("Bishop moves diagonally")
+        movement = "Bishop moves diagonally"
+        super().move(movement)
