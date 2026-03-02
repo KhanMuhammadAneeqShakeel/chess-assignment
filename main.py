@@ -1,20 +1,24 @@
-from chess.pieces import Pawn
-from chess.pieces import Pawn, Rook, Bishop
-
-pawn1 = Pawn("BLACK", 1)
-pawn1.move()
-
-print(pawn1)
+from chess.board import Board
 
 
-pawn1 = Pawn("BLACK", 1)
-rook1 = Rook("WHITE", 1)
-bishop1 = Bishop("BLACK", 2)
+def main():
 
-pawn1.move()
-rook1.move()
-bishop1.move()
+    board = Board()
 
-print(pawn1)
-print(rook1)
-print(bishop1)
+    print("Initial Board:\n")
+    board.print_board()
+
+    
+    pawn = board.get_piece("a2")
+
+    print("\nMoving pawn at a2...\n")
+    pawn.move()
+
+    print("Board After Move:\n")
+    board.print_board()
+
+
+if __name__ == "__main__":
+    main()
+for state in Board.load_board_states():
+    print(state)
